@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/06129d917642f323f77a3.jpg">
+  <img src="https://telegra.ph/file/fccae495b5497e944d0fe.jpg">
 </p>
 
 # SankiRobot 
