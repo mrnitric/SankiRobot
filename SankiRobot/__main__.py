@@ -4,7 +4,7 @@ import re
 from sys import argv
 from typing import Optional
 
-from SankiRobot import (
+from MojiliRobot import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -24,9 +24,9 @@ from SankiRobot import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from SankiRobot.modules import ALL_MODULES
-from SankiRobot.modules.helper_funcs.chat_status import is_user_admin
-from SankiRobot.modules.helper_funcs.misc import paginate_modules
+from MojiliRobot.modules import ALL_MODULES
+from MojiliRobot.modules.helper_funcs.chat_status import is_user_admin
+from MojiliRobot.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -73,17 +73,17 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi {}, my name is {}! 
+Hi {}, my name is Mojili! 
 I am a  Powerfull  group management bot. You can find my list of available commands with /help.
-Maintained by [Nitric™ [🇮🇳]](t.me/Mr_Nitric)
+Maintained by [𓄀❯❯⃟❮❮⚊DRAGON⚊❯❯⃟❮❮⚊ 𓆩Uɴ Oғғɪᴄɪᴀʟ𓆪[🇮🇳]](t.me/iamdivyesh)
 """
 G_START_TEXT = """
-Hello SankiRobot Is In The Chat.
+Hello MojiliRobot Is In The Chat.
 Uptime - {}!
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
+Hey there! My name is *Mojilirobot*.
 I'm a Heroine For Fun and help admins to manage their groups! Have a look at the following for an idea of some of \
 the things I can help you with.
 *Main* commands available:
@@ -102,14 +102,14 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-SankiRobot_IMG = "https://telegra.ph/file/fccae495b5497e944d0fe.jpg"
+MojiliRobot_IMG = "https://telegra.ph/file/f325262d82f8eb85fbf60.jpg"
 
-SankiRobotG_IMG = "https://telegra.ph/file/fccae495b5497e944d0fe.jpg"
+MojiliRobotG_IMG = "https://telegra.ph/file/f325262d82f8eb85fbf60.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting [Mr Nitric](https://t.me/Mr_Nitric).
- Those who cannot provide monetary support are welcome to help us develop the bot at @SankiiPublic.
- [PayPal](paypal.me/nikdoper)"""
+ You can support the project by contacting [𓄀❯❯⃟❮❮⚊DRAGON⚊❯❯⃟❮❮⚊ 𓆩Uɴ Oғғɪᴄɪᴀʟ𓆪](https://t.me/iamdivyesh).
+ Those who cannot provide monetary support are welcome to help us develop the bot at @gujjubhai_support.
+ [PayPal](paypal.me/)"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -122,7 +122,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("SankiRobot.modules." + module_name)
+    imported_module = importlib.import_module("MojiliRobot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -216,7 +216,7 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                SankiRobot_IMG,
+                MojiliRobot_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(first_name), escape_markdown(context.bot.first_name)
                 ),
@@ -232,28 +232,28 @@ def start(update: Update, context: CallbackContext):
                                 ),
                             ),
                             InlineKeyboardButton(
-                                text="𝗦𝗮𝗻𝗸𝗶 𝗣𝘂𝗯𝗹𝗶𝗰⚡️",
-                                url="https://t.me/SankiiPublic",
+                                text="Mojili Help🥀",
+                                url="https://t.me/iamdivyesh",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="𝗦𝘂𝗽𝗽𝗼𝗿𝘁⚡️",
-                                url=f"https://t.me/{SankiiPublic}",
+                                url=f"https://t.me/GujjuBhai_support",
                             ),
                             InlineKeyboardButton(
                                 text="𝗖𝗥𝗘𝗔𝗧𝗘𝗥⚡️",
-                                url="https://t.me/Mr_Nitric",
+                                url="https://t.me/iamdivyesh",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="𝗨𝗽𝗱𝗮𝘁𝗲𝘀⚡️",
-                                url="https://t.me/SankiiPublic",
+                                url="https://t.me/gujjubhai_support",
                             ),
                             InlineKeyboardButton(
                                 text="𝗥𝗘𝗣𝗢⚡️",
-                                url="https://github.com/mrNitric/SankiRobot",
+                                url="https://github.com/iamdivyeshh/SankiRobot",
                             ),
                         ],
                     ]
@@ -261,7 +261,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            SankiRobotG_IMG,
+            MojiliRobotG_IMG,
             G_START_TEXT.format(uptime),
         )
 
